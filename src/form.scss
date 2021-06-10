@@ -1,0 +1,334 @@
+/*
+:root {
+  background-color: #e7e7e8;
+}
+*/
+
+.multistep-form-container {
+	width: 100%;
+	max-width: 485px;
+	min-height: 480px;
+	margin: 0 auto;
+
+	* {
+		border-radius: 3px;
+		font-family: Lato;
+	}
+
+	#hs-main-form {
+		position: relative;
+
+		#progressbar {
+			margin: 0 0 30px;
+			padding: 0;
+			text-align: center;
+			overflow: hidden;
+			/*CSS counters to number the steps*/
+			counter-reset: step;
+			display: flex;
+			justify-content: center;
+
+			li {
+				list-style-type: none;
+				color: white;
+				text-transform: uppercase;
+				font-size: 12px;
+				/*width: 20%;*/
+				position: relative;
+
+				&:before {
+					transition: 0.8s;
+					content: counter(step);
+					counter-increment: step;
+					width: calc(100% - 5px);
+					line-height: 20px;
+					display: block;
+					font-size: 10px;
+					color: #333;
+					background: #e7e7e8;
+					border-radius: 3px;
+					margin: 0 auto 5px auto;
+				}
+
+				&:after {
+					transition: 0.8s;
+					content: "";
+					width: 100%;
+					height: 2px;
+					background: white;
+					position: absolute;
+					left: -50%;
+					top: 9px;
+					z-index: -1; /*put it behind the numbers*/
+				}
+				&:first-child:after {
+					/*connector not needed before the first step*/
+					content: none;
+				}
+
+				&.active:before,
+				&.active:after {
+					transition: 0.8s;
+					background-color: #68813c;
+					color: white;
+				}
+			}
+		}
+
+		.form-step:not(:first-of-type) {
+			visibility: hidden;
+		}
+
+		.form-step {
+			width: 100%;
+			background: white;
+			border: 0 none;
+			border-radius: 30px;
+			box-shadow: 0 0 10px 1px rgb(0 0 0 / 25%);
+			padding: 40px 2em;
+			box-sizing: border-box;
+			min-height: 400px;
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			transition: 0s;
+
+			.content-section {
+				display: flex;
+
+				.w7 {
+					width: 58.3333333333%;
+				}
+				.w5 {
+					width: 41.6666666667%;
+				}
+				.flag {
+					text-align: right;
+
+					#usa-flag {
+						width: 80%;
+					}
+				}
+			}
+
+			.step-title {
+				display: block;
+				text-align: left;
+				font-size: 1.6em;
+				margin-bottom: 25px;
+			}
+			.step-subtitle {
+				text-align: center;
+			}
+
+			hr {
+				background-color: #e7eade;
+				height: 2px;
+				width: 100%;
+				border: none;
+				margin: 15px auto;
+			}
+
+			.fields-section {
+				display: flex;
+				flex-direction: column;
+
+				.options-title {
+					margin-bottom: 10px;
+					font-size: 1.2em;
+					font-weight: bold;
+					color: #68813c;
+				}
+
+				.form-field {
+					display: flex;
+					flex-direction: column;
+
+					input,
+					select {
+						height: 40px;
+						margin-bottom: 10px;
+						outline: none;
+						border-width: 2px;
+						border-color: #f3efe8;
+						border-style: solid;
+						padding: 0 5px;
+						font-size: 1em;
+						transition: 0.3s;
+
+						&:focus,
+						&:hover {
+							border: 2px solid #68813c;
+						}
+						&.error {
+							border: 2px solid #f05023;
+						}
+					}
+				}
+				.multi-radio-check-fields-container {
+					display: flex;
+					flex-direction: column;
+
+					.multi-radio-fields {
+						display: flex;
+						list-style-type: none;
+						padding: 0;
+						margin: 0 0 10px 0;
+						justify-content: left;
+						text-align: center;
+						gap: 10%;
+
+						.radio-field,
+						li[data-person-type] {
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+						}
+
+						input[type="radio"] {
+							position: absolute;
+							top: -9999999999999px;
+						}
+
+						input[type="radio"]:checked {
+							~ .field-title {
+								#Colored_BG path,
+								#Colored_BG polygon {
+									stroke: #68813c;
+									fill: #68813c;
+								}
+								#Outlined path,
+								#Outlined polygon {
+									fill: #fff;
+								}
+							}
+						}
+						li[data-person-type].selected {
+							#Colored_BG path,
+							#Colored_BG polygon {
+								stroke: #68813c;
+								fill: #68813c;
+							}
+							#Outlined path,
+							#Outlined polygon {
+								fill: #fff;
+							}
+						}
+
+						.field-title {
+							cursor: pointer;
+							transition: 0.2s;
+
+							svg {
+								display: block;
+								margin: 0 auto;
+								width: 80px;
+							}
+
+							&:hover {
+								transform: scale(0.95);
+
+								#Colored_BG path {
+									stroke: #68813c;
+								}
+								#Outlined path {
+									fill: #68813c;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.btn-section {
+			display: flex;
+			align-items: center;
+			margin-top: 15px;
+
+			button {
+				cursor: pointer;
+				border: 2px solid #f05023;
+				background-color: #f05023;
+				padding: 10px 10px;
+				font-weight: 700;
+				font-size: 1.5em;
+				color: #fff;
+				width: 100%;
+				margin: 0 auto;
+				transition: 0.3s;
+
+				&:disabled {
+					opacity: 0.7;
+					cursor: not-allowed;
+				}
+				&:hover {
+					transform: scale(0.97);
+				}
+				&:focus,
+				&:focus-visible {
+					outline: none;
+					border-color: #222;
+				}
+			}
+		}
+		.privacy {
+			margin-top: 15px;
+		}
+	}
+	// Last step
+	section:last-child {
+		.fields-section {
+			align-items: center;
+
+			#msg {
+				text-align: center;
+				font-size: 1.3em;
+				font-weight: 600;
+				display: flex;
+				flex-direction: inherit;
+			}
+			// Chrome
+			progress::-webkit-progress-bar {
+				background-color: #e7e7e8;
+				border-radius: 3px;
+			}
+			progress::-webkit-progress-value {
+				background-color: 68813c !important;
+			}
+			// FF
+			progress {
+				background-color: #e7e7e8;
+				border-radius: 3px;
+			}
+			progress::-moz-progress-bar {
+				background-color: #68813c !important;
+				border-radius: 15px;
+			}
+			// Safari
+			progress::-webkit-progress-bar {
+				background-color: #e7e7e8;
+				border-radius: 3px;
+				width: 100%;
+			}
+			progress::-webkit-progress-value {
+				background-color: #68813c !important;
+				border-radius: 15px;
+			}
+			// Edge
+			progress {
+				background-color: #e7e7e8;
+				border-radius: 3px;
+			}
+			progress {
+				color: #68813c;
+				border-radius: 15px;
+			}
+			#timeRem {
+				font-size: 1em;
+			}
+		}
+	}
+}
+
+/* ### RESPONSIVE ### */

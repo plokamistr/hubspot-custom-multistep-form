@@ -1,0 +1,15 @@
+{
+  "name": "ms-form",
+  "version": "1.0.0",
+  "description": "Multistep Form for hubspot using Forms API v3",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Georgios Karakitsios",
+  "license": "ISC",
+  "dependencies": {
+    "jquery-validation": "^1.19.3",
+    "sass": "^1.32.13"
+  }
+}
