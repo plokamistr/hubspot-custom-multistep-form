@@ -89,11 +89,16 @@ $("input[name='zip']").on("keyup", function () {
 
 
 // Form Validation
-function formValidation() {  
-   
+function formValidation() {
+
+  // Email validation
   $.validator.addMethod("customEmail", function (value, element) {
     return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
   }, "Please enter valid email address!");
+
+  $.validator.addMethod("noSpace", function (value, element) {
+    return value == '' || value.trim().length != 0;
+  }, "Please fill correctly the field. Avoid 'space' characters");
 
 
   // Add class ignore to active section
@@ -109,6 +114,12 @@ function formValidation() {
       approximate_roof_size: {
         required: true,
       },
+      firstname: {
+        required: true,
+      },
+      lastname: {
+        required: true,
+      },
       email: {
         required: true,
         customEmail: true,
@@ -116,11 +127,16 @@ function formValidation() {
       phone: {
         required: true,
       },
+      address: {
+        required: true,
+      },
+      city: {
+        required: true,
+      },
     },
     messages: {
       zip: {
         required: 'A zip code is required!',
-        //noSpace: true, 
       },
       roof_stories: {
         required: 'Please choose Level/s'
@@ -130,28 +146,41 @@ function formValidation() {
       },
       email: {
         required: 'Please enter a valid email',
-        email: 'You are missing @ right?'
+        email: 'Don\'t forget the @ character!',
+      },
+      firstname: {
+        required: 'Please enter your first name',
+      },
+      lastname: {
+        required: 'Please enter your last name',
       },
       phone: {
-        required: 'Please enter a correct US phone number'
+        required: 'Please enter a valid phone number',
+        noSpace: true,
+      },
+      address: {
+        required: 'Please enter a valid address',
+      },
+      city: {
+        required: 'Please enter a valid city name',
       },
     },
     ignore: ".ignore",
     focusInvalid: true,
-    
-    errorPlacement: function(error, element) {
-      if(element.is( ":radio" )){
+
+    errorPlacement: function (error, element) {
+      if (element.is(":radio")) {
         error.insertBefore($(element).parent().parent());
       }
       /*
       else if(element.is( ":text" )){
         error.insertBefore($(element));
       }*/
-      else{
+      else {
         error.insertBefore($(element));
       }
-  },
-    
+    },
+
 
   });
 

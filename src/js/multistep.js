@@ -25,10 +25,7 @@ $(nextBtn).on("click", function () {
     nextStep = $(this).parent().parent().next();
 
     // To validate only the indicated fields if not remove class ignore when activeStep
-    let toIgnoreItem= $(nextStep).find(".ignore");
-    console.log("Next element with class ignore is:",toIgnoreItem)
-    $(toIgnoreItem).removeClass();
-
+    $(nextStep).find(".ignore").removeClass();
 
 
     // HERE WE SUBMIT ON EACH NEXT STEP CLICK
@@ -38,7 +35,7 @@ $(nextBtn).on("click", function () {
     $("#progressbar li").eq($("section").index(nextStep)).addClass("active");
     $(currentStep).removeClass("activeStep");
     $(nextStep).addClass("activeStep");
- 
+
 
 
     // HERE WE PASS clicks TO USER INFO REGISTRATION

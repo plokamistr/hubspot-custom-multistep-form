@@ -1,8 +1,3 @@
-/*
-:root {
-  background-color: #e7e7e8;
-}
-*/
 .multistep-form-container {
   width: 100%;
   max-width: 485px;
@@ -42,8 +37,8 @@
   line-height: 20px;
   display: block;
   font-size: 10px;
-  color: #333;
-  background: #e7e7e8;
+  color: #222222;
+  background: #f3efe8;
   border-radius: 3px;
   margin: 0 auto 5px auto;
 }
@@ -52,7 +47,7 @@
   content: "";
   width: 100%;
   height: 2px;
-  background: white;
+  background: #f3efe8;
   position: absolute;
   left: -50%;
   top: 9px;
@@ -66,14 +61,14 @@
 .multistep-form-container #hs-main-form #progressbar li.active:before, .multistep-form-container #hs-main-form #progressbar li.active:after {
   transition: 0.8s;
   background-color: #68813c;
-  color: white;
+  color: #ffffff;
 }
 .multistep-form-container #hs-main-form .form-step:not(:first-of-type) {
   visibility: hidden;
 }
 .multistep-form-container #hs-main-form .form-step {
   width: 100%;
-  background: white;
+  background: #ffffff;
   border: 0 none;
   border-radius: 30px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
@@ -111,7 +106,7 @@
   text-align: center;
 }
 .multistep-form-container #hs-main-form .form-step hr {
-  background-color: #e7eade;
+  background-color: #f3efe8;
   height: 2px;
   width: 100%;
   border: none;
@@ -121,11 +116,19 @@
   display: flex;
   flex-direction: column;
 }
+.multistep-form-container #hs-main-form .form-step .fields-section .error {
+  color: #f05023;
+  margin-bottom: 10px;
+}
 .multistep-form-container #hs-main-form .form-step .fields-section .options-title {
   margin-bottom: 10px;
   font-size: 1.2em;
   font-weight: bold;
   color: #68813c;
+}
+.multistep-form-container #hs-main-form .form-step .fields-section .options-title .optional {
+  color: #5b7e96;
+  font-size: 0.7em;
 }
 .multistep-form-container #hs-main-form .form-step .fields-section .form-field {
   display: flex;
@@ -182,7 +185,7 @@
 }
 .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields input[type=radio]:checked ~ .field-title #Outlined path,
 .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields input[type=radio]:checked ~ .field-title #Outlined polygon {
-  fill: #fff;
+  fill: #ffffff;
 }
 .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields li[data-person-type].selected #Colored_BG path,
 .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields li[data-person-type].selected #Colored_BG polygon {
@@ -191,7 +194,7 @@
 }
 .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields li[data-person-type].selected #Outlined path,
 .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields li[data-person-type].selected #Outlined polygon {
-  fill: #fff;
+  fill: #ffffff;
 }
 .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields .field-title {
   cursor: pointer;
@@ -223,7 +226,7 @@
   padding: 10px 10px;
   font-weight: 700;
   font-size: 1.5em;
-  color: #fff;
+  color: #ffffff;
   width: 100%;
   margin: 0 auto;
   transition: 0.3s;
@@ -237,7 +240,7 @@
 }
 .multistep-form-container #hs-main-form .btn-section button:focus, .multistep-form-container #hs-main-form .btn-section button:focus-visible {
   outline: none;
-  border-color: #222;
+  border-color: #222222;
 }
 .multistep-form-container #hs-main-form .privacy {
   margin-top: 15px;
@@ -253,14 +256,14 @@
   flex-direction: inherit;
 }
 .multistep-form-container section:last-child .fields-section progress::-webkit-progress-bar {
-  background-color: #e7e7e8;
+  background-color: #f3efe8;
   border-radius: 3px;
 }
 .multistep-form-container section:last-child .fields-section progress::-webkit-progress-value {
-  background-color: 68813c !important;
+  background-color: #68813c !important;
 }
 .multistep-form-container section:last-child .fields-section progress {
-  background-color: #e7e7e8;
+  background-color: #f3efe8;
   border-radius: 3px;
 }
 .multistep-form-container section:last-child .fields-section progress::-moz-progress-bar {
@@ -268,7 +271,7 @@
   border-radius: 15px;
 }
 .multistep-form-container section:last-child .fields-section progress::-webkit-progress-bar {
-  background-color: #e7e7e8;
+  background-color: #f3efe8;
   border-radius: 3px;
   width: 100%;
 }
@@ -277,7 +280,7 @@
   border-radius: 15px;
 }
 .multistep-form-container section:last-child .fields-section progress {
-  background-color: #e7e7e8;
+  background-color: #f3efe8;
   border-radius: 3px;
 }
 .multistep-form-container section:last-child .fields-section progress {

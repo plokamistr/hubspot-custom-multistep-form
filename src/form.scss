@@ -1,8 +1,10 @@
-/*
-:root {
-  background-color: #e7e7e8;
-}
-*/
+$green: #68813c;
+$red: #f05023;
+$yellow: #f5a800;
+$black: #222222;
+$grey: #f3efe8;
+$white: #ffffff;
+$blue: #5b7e96;
 
 .multistep-form-container {
 	width: 100%;
@@ -44,8 +46,8 @@
 					line-height: 20px;
 					display: block;
 					font-size: 10px;
-					color: #333;
-					background: #e7e7e8;
+					color: $black;
+					background: $grey;
 					border-radius: 3px;
 					margin: 0 auto 5px auto;
 				}
@@ -55,7 +57,7 @@
 					content: "";
 					width: 100%;
 					height: 2px;
-					background: white;
+					background: $grey;
 					position: absolute;
 					left: -50%;
 					top: 9px;
@@ -69,8 +71,8 @@
 				&.active:before,
 				&.active:after {
 					transition: 0.8s;
-					background-color: #68813c;
-					color: white;
+					background-color: $green;
+					color: $white;
 				}
 			}
 		}
@@ -81,7 +83,7 @@
 
 		.form-step {
 			width: 100%;
-			background: white;
+			background: $white;
 			border: 0 none;
 			border-radius: 30px;
 			box-shadow: 0 0 10px 1px rgb(0 0 0 / 25%);
@@ -123,7 +125,7 @@
 			}
 
 			hr {
-				background-color: #e7eade;
+				background-color: $grey;
 				height: 2px;
 				width: 100%;
 				border: none;
@@ -134,11 +136,21 @@
 				display: flex;
 				flex-direction: column;
 
+				.error {
+					color: $red;
+					margin-bottom: 10px;
+				}
+
 				.options-title {
 					margin-bottom: 10px;
 					font-size: 1.2em;
 					font-weight: bold;
-					color: #68813c;
+					color: $green;
+
+					.optional {
+						color: $blue;
+						font-size: 0.7em;
+					}
 				}
 
 				.form-field {
@@ -151,7 +163,7 @@
 						margin-bottom: 10px;
 						outline: none;
 						border-width: 2px;
-						border-color: #f3efe8;
+						border-color: $grey;
 						border-style: solid;
 						padding: 0 5px;
 						font-size: 1em;
@@ -159,10 +171,10 @@
 
 						&:focus,
 						&:hover {
-							border: 2px solid #68813c;
+							border: 2px solid $green;
 						}
 						&.error {
-							border: 2px solid #f05023;
+							border: 2px solid $red;
 						}
 					}
 				}
@@ -195,24 +207,24 @@
 							~ .field-title {
 								#Colored_BG path,
 								#Colored_BG polygon {
-									stroke: #68813c;
-									fill: #68813c;
+									stroke: $green;
+									fill: $green;
 								}
 								#Outlined path,
 								#Outlined polygon {
-									fill: #fff;
+									fill: $white;
 								}
 							}
 						}
 						li[data-person-type].selected {
 							#Colored_BG path,
 							#Colored_BG polygon {
-								stroke: #68813c;
-								fill: #68813c;
+								stroke: $green;
+								fill: $green;
 							}
 							#Outlined path,
 							#Outlined polygon {
-								fill: #fff;
+								fill: $white;
 							}
 						}
 
@@ -230,10 +242,10 @@
 								transform: scale(0.95);
 
 								#Colored_BG path {
-									stroke: #68813c;
+									stroke: $green;
 								}
 								#Outlined path {
-									fill: #68813c;
+									fill: $green;
 								}
 							}
 						}
@@ -248,12 +260,12 @@
 
 			button {
 				cursor: pointer;
-				border: 2px solid #f05023;
-				background-color: #f05023;
+				border: 2px solid $red;
+				background-color: $red;
 				padding: 10px 10px;
 				font-weight: 700;
 				font-size: 1.5em;
-				color: #fff;
+				color: $white;
 				width: 100%;
 				margin: 0 auto;
 				transition: 0.3s;
@@ -268,7 +280,7 @@
 				&:focus,
 				&:focus-visible {
 					outline: none;
-					border-color: #222;
+					border-color: $black;
 				}
 			}
 		}
@@ -290,38 +302,38 @@
 			}
 			// Chrome
 			progress::-webkit-progress-bar {
-				background-color: #e7e7e8;
+				background-color: $grey;
 				border-radius: 3px;
 			}
 			progress::-webkit-progress-value {
-				background-color: 68813c !important;
+				background-color: $green !important;
 			}
 			// FF
 			progress {
-				background-color: #e7e7e8;
+				background-color: $grey;
 				border-radius: 3px;
 			}
 			progress::-moz-progress-bar {
-				background-color: #68813c !important;
+				background-color: $green !important;
 				border-radius: 15px;
 			}
 			// Safari
 			progress::-webkit-progress-bar {
-				background-color: #e7e7e8;
+				background-color: $grey;
 				border-radius: 3px;
 				width: 100%;
 			}
 			progress::-webkit-progress-value {
-				background-color: #68813c !important;
+				background-color: $green !important;
 				border-radius: 15px;
 			}
 			// Edge
 			progress {
-				background-color: #e7e7e8;
+				background-color: $grey;
 				border-radius: 3px;
 			}
 			progress {
-				color: #68813c;
+				color: $green;
 				border-radius: 15px;
 			}
 			#timeRem {
