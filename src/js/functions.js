@@ -42,7 +42,7 @@ function setLocalStorageService(fields) {
 // Autocomplete state n city function
 $("input[name='zip']").on("keyup", function () {
   const zipValue = $(this).val();
-  const zipUrl = `http://api.zippopotam.us/us/${form.querySelector("input[name='zip']").value}`
+  const zipUrl = `https://api.zippopotam.us/us/${form.querySelector("input[name='zip']").value}`
   // We execute when length is 5 digits
   if ((zipValue.length == 5)) {
 
