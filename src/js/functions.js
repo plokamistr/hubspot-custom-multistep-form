@@ -89,8 +89,7 @@ $("input[name='zip']").on("keyup", function () {
 
 
 // Form Validation
-function formValidation() {
-  
+function formValidation() {  
    
   $.validator.addMethod("customEmail", function (value, element) {
     return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
@@ -139,6 +138,19 @@ function formValidation() {
     },
     ignore: ".ignore",
     focusInvalid: true,
+    
+    errorPlacement: function(error, element) {
+      if(element.is( ":radio" )){
+        error.insertBefore($(element).parent().parent());
+      }
+      /*
+      else if(element.is( ":text" )){
+        error.insertBefore($(element));
+      }*/
+      else{
+        error.insertBefore($(element));
+      }
+  },
     
 
   });
