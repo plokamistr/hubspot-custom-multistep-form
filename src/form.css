@@ -176,7 +176,7 @@
 }
 .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields input[type=radio] {
   position: absolute;
-  top: -9999999999999px;
+  left: -9999999999999px;
 }
 .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields input[type=radio]:checked ~ .field-title #Colored_BG path,
 .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields input[type=radio]:checked ~ .field-title #Colored_BG polygon {
