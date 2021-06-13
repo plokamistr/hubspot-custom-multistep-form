@@ -6,6 +6,7 @@ This is an intention of a multi-step form using hubspot form API v3 and jquery
 - IP is caught by https://www.ipify.org/ API
 - Autocomplete of city and state field is done through the https://www.zippopotam.us/ API
 - In any case modify the field order per needs
+- Ability to move progress bar to the bottom
 
 ## TO IMPROVE
 - syntax
