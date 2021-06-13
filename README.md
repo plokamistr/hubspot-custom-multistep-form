@@ -10,4 +10,5 @@ This is an intention of a multi-step form using hubspot form API v3 and jquery
 ## TO IMPROVE
 - syntax
 - relation between js files
-- validation
+- validation for empty space character
+-
