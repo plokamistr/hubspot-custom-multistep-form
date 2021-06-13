@@ -4,11 +4,10 @@ let animating; //flag to prevent quick multi-click glitches
 let clicks = 0; // iniciate clicks on next button
 const nextBtn = $(".next");
 const prevBtn = $(".previous");
-const resetBtn = $(".btn-reset");
+//const resetBtn = $(".btn-reset");
 
 //################## ON NEXT CLICK #########################
 $(nextBtn).on("click", function () {
-
 
   formValidation()
 
@@ -24,16 +23,23 @@ $(nextBtn).on("click", function () {
 
     currentStep = $(this).parent().parent();
     nextStep = $(this).parent().parent().next();
-    console.log(nextStep)
+
+    // To validate only the indicated fields if not remove class ignore when activeStep
+    let toIgnoreItem= $(nextStep).find(".ignore");
+    console.log("Next element with class ignore is:",toIgnoreItem)
+    $(toIgnoreItem).removeClass();
+
+
 
     // HERE WE SUBMIT ON EACH NEXT STEP CLICK
     submitForm();
-
 
     //activate next step on progressbar using the index of nextStep
     $("#progressbar li").eq($("section").index(nextStep)).addClass("active");
     $(currentStep).removeClass("activeStep");
     $(nextStep).addClass("activeStep");
+ 
+
 
     // HERE WE PASS clicks TO USER INFO REGISTRATION
     //clickRegister(clicks);
@@ -181,6 +187,7 @@ $(resetBtn).on("click", function () {
 function resetForm() {
   $(form)[0].reset();
   clicks = 0;
+  $(".valid").removeClass();
 }
 
 function returnToFirst() {

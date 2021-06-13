@@ -90,7 +90,8 @@ $("input[name='zip']").on("keyup", function () {
 
 // Form Validation
 function formValidation() {
-
+  
+   
   $.validator.addMethod("customEmail", function (value, element) {
     return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
   }, "Please enter valid email address!");
@@ -138,14 +139,10 @@ function formValidation() {
     },
     ignore: ".ignore",
     focusInvalid: true,
-
-    /*
-    errorPlacement: function (error, element) {
-      element.parent('').insertBefore(error);
-    },
-    */
+    
 
   });
+
 
 }
 
