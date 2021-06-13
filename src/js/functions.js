@@ -4,9 +4,6 @@ $("section").each(function (i) {
   $(this).prop('id', 'step-' + i);
 });
 
-// Define Privacy policy links
-
-
 // Dynamic width of progress bar steps
 $("#progressbar").each(function () {
   let liNumber = $(this).children().length;
@@ -26,26 +23,8 @@ fetch(urlIp)
     ipAddress.push(result.ip);
   });
 
-/*
-async function fetchAsync() {
-  // await response of fetch call
-  let response = await fetch(urlIp);
-  // only proceed once promise is resolved
-  let data = await response.json();
-  // only proceed once second promise is resolved
-  return data;
-}
-// trigger async function
-// log response or catch error of fetch promise
-fetchAsync()
-  .then((data) => {
-    ipAddress.push(data.ip);
-    console.log("Your IP is: ", ipAddress[0]);
-  })
-  .catch((reason) => console.log(reason.message));
-*/
-
 // Local Storage Service from hubspotscripts
+/*
 function setLocalStorageService(fields) {
   setTimeout(function () {
     let insertedFields = localStorage.setItem('Fields', JSON.stringify(fields));
@@ -58,7 +37,7 @@ function setLocalStorageService(fields) {
 
   }, 500);
 }
-
+*/
 
 // Autocomplete state n city function
 $("input[name='zip']").on("keyup", function () {
@@ -98,7 +77,7 @@ function formValidation() {
 
   $.validator.addMethod("noSpace", function (value, element) {
     return value == '' || value.trim().length != 0;
-  }, "Please fill correctly the field. Avoid 'space' characters");
+  }, "Please fill the field correctly. Avoid 'space' characters");
 
 
   // Add class ignore to active section
@@ -107,6 +86,7 @@ function formValidation() {
     rules: {
       zip: {
         required: true,
+        noSpace: true,
       },
       roof_stories: {
         required: true,
@@ -116,22 +96,28 @@ function formValidation() {
       },
       firstname: {
         required: true,
+        noSpace: true,
       },
       lastname: {
         required: true,
+        noSpace: true,
       },
       email: {
         required: true,
         customEmail: true,
+        noSpace: true,
       },
       phone: {
         required: true,
+        noSpace: true,
       },
       address: {
         required: true,
+        noSpace: true,
       },
       city: {
         required: true,
+        noSpace: true,
       },
     },
     messages: {
@@ -156,7 +142,6 @@ function formValidation() {
       },
       phone: {
         required: 'Please enter a valid phone number',
-        noSpace: true,
       },
       address: {
         required: 'Please enter a valid address',
@@ -180,11 +165,7 @@ function formValidation() {
         error.insertBefore($(element));
       }
     },
-
-
   });
-
-
 }
 
 

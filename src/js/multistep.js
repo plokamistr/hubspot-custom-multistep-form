@@ -184,7 +184,9 @@ $(resetBtn).on("click", function () {
 function resetForm() {
   $(form)[0].reset();
   clicks = 0;
-  $(".valid").removeClass();
+  $(".valid").toggleClass("ignore");
+  $("#step-1 .fields-section input").removeClass("ignore");
+  $(".checkbox-field").removeClass("selected");
 }
 
 function returnToFirst() {
@@ -239,6 +241,7 @@ function returnToFirst() {
     }
   );
 }
+
 
 let observer = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {

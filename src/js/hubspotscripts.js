@@ -48,7 +48,6 @@ async function submitForm() {
   const address2 = form.querySelector("input[name='street_address_2']").value;
   const city = form.querySelector("input[name='city']").value;
   const state = form.querySelector("select[name='state']").value;
-  //const propertyType = form.querySelector("select[name='property_type']").value;
   const roofStories = form.querySelector("input[name='roof_stories']:checked").value;
   const roofSize = form.querySelector("input[name='approximate_roof_size']:checked").value;
   const pageUri = document.URL;
@@ -71,12 +70,10 @@ async function submitForm() {
     {
       name: "email",
       value: email,
-      required: true,
     },
     {
       name: "zip",
       value: postalCode,
-      required: true,
     },
     {
       name: "roof_stories",
@@ -101,7 +98,6 @@ async function submitForm() {
     {
       name: "phone",
       value: phoneNumber,
-      required: true,
     },
     {
       name: "address",
@@ -119,12 +115,6 @@ async function submitForm() {
       name: "state",
       value: state,
     },
-    /*
-    {
-      name: "property_type",
-      value: propertyType,
-    },
-    */
   ];
 
 
@@ -147,22 +137,21 @@ async function submitForm() {
   //setLocalStorageService(fields);
 
   /*
-    try {
-      const response = await fetch(FORM_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      });
-  
-      const { inlineMessage } = await response.json();
-      messageContainer.innerHTML = inlineMessage;
-    } catch (error) {
-      messageContainer.innerHTML = "Something went wrong. Please try again";
-    }
-  */
+  try {
+    const response = await fetch(FORM_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
 
+    const { inlineMessage } = await response.json();
+    messageContainer.innerHTML = inlineMessage;
+  } catch (error) {
+    messageContainer.innerHTML = "Something went wrong. Please try again";
+  }
+  */
 
 
 }
