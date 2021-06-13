@@ -9,6 +9,7 @@
   "author": "Georgios Karakitsios",
   "license": "ISC",
   "dependencies": {
+    "jquery": "^3.6.0",
     "jquery-validation": "^1.19.3",
     "sass": "^1.32.13"
   }
