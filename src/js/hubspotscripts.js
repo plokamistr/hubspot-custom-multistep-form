@@ -170,6 +170,7 @@ async function submitForm() {
     messageContainer.innerHTML = inlineMessage;
     const error  = await response.json();
     alert(error.message);
+    */
 
   
 }
