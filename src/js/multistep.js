@@ -2,6 +2,7 @@ let currentStep, nextStep, prevStep; //sections
 let left, opacity, scale; //section properties which we will animate
 let animating; //flag to prevent quick multi-click glitches
 let clicks = 0; // iniciate clicks on next button
+let afterEmail = ""; // iniciate flag to start submiting after the step that includes the email field
 const nextBtn = $(".next");
 const prevBtn = $(".previous");
 //const resetBtn = $(".btn-reset");
@@ -23,13 +24,26 @@ $(nextBtn).on("click", function () {
 
     currentStep = $(this).parent().parent();
     nextStep = $(this).parent().parent().next();
+    console.log(nextStep)
 
     // To validate only the indicated fields if not remove class ignore when activeStep
     $(nextStep).find(".ignore").removeClass();
 
 
-    // HERE WE SUBMIT ON EACH NEXT STEP CLICK
-    submitForm();
+    // HERE WE SUBMIT ON EACH NEXT STEP CLICK WHERE THE EMAIL INPUT IS
+    let emailEl = form.querySelector("input[name='email']");
+    let divContains_El = form.querySelector("section.activeStep").contains(emailEl);
+    
+    if (divContains_El || afterEmail){ 
+      console.log("YES");
+      submitForm();
+      afterEmail = true;
+    } else (
+      console.log("NO")
+    )
+    
+    
+    
 
     //activate next step on progressbar using the index of nextStep
     $("#progressbar li").eq($("section").index(nextStep)).addClass("active");
@@ -74,6 +88,7 @@ $(nextBtn).on("click", function () {
 //####################################################################
 
 //################## ON PREVIOUS CLICK #########################
+/*
 $(prevBtn).on("click", function () {
   if (animating) return false;
   animating = true;
@@ -118,6 +133,7 @@ $(prevBtn).on("click", function () {
     }
   );
 });
+*/
 //####################################################################
 
 //################## IF RESET BUTTON IS WANTED #########################
@@ -184,6 +200,7 @@ $(resetBtn).on("click", function () {
 function resetForm() {
   $(form)[0].reset();
   clicks = 0;
+  afterEmail = false;
   $(".valid").toggleClass("ignore");
   $("#step-1 .fields-section input").removeClass("ignore");
   $(".checkbox-field").removeClass("selected");

@@ -13,30 +13,35 @@ const messageContainer = document.getElementById("msg");
 // Here is the person type options selections
 let selectedPersonTypes = [];
 const personTypeCheckboxes = document.querySelectorAll("[data-person-type]");
-personTypeCheckboxes.forEach(checkbox => checkbox.addEventListener("click", (event) => {
-  const personType = checkbox.dataset.personType;
+personTypeCheckboxes.forEach((checkbox) =>
+  checkbox.addEventListener("click", (event) => {
+    const personType = checkbox.dataset.personType;
 
-  if (personType === 'neither') {
-    selectedPersonTypes = ['neither']
-    personTypeCheckboxes.forEach(checkbox => checkbox.classList.remove('selected'))
-    checkbox.classList.add('selected')
-  } else if (selectedPersonTypes.includes(personType)) {
-    selectedPersonTypes = selectedPersonTypes.filter(x => x !== personType)
-    checkbox.classList.remove('selected')
-  } else {
-    selectedPersonTypes = [...selectedPersonTypes, personType].filter(x => x !== 'neither');
-    personTypeCheckboxes.forEach(checkbox => {
-      if (checkbox.dataset.personType === 'neither') {
-        checkbox.classList.remove('selected');
-      }
-    })
-    checkbox.classList.add('selected')
-  }
-}))
+    if (personType === "neither") {
+      selectedPersonTypes = ["neither"];
+      personTypeCheckboxes.forEach((checkbox) =>
+        checkbox.classList.remove("selected")
+      );
+      checkbox.classList.add("selected");
+    } else if (selectedPersonTypes.includes(personType)) {
+      selectedPersonTypes = selectedPersonTypes.filter((x) => x !== personType);
+      checkbox.classList.remove("selected");
+    } else {
+      selectedPersonTypes = [...selectedPersonTypes, personType].filter(
+        (x) => x !== "neither"
+      );
+      personTypeCheckboxes.forEach((checkbox) => {
+        if (checkbox.dataset.personType === "neither") {
+          checkbox.classList.remove("selected");
+        }
+      });
+      checkbox.classList.add("selected");
+    }
+  })
+);
 
 // HERE HAPPENS SUBMIT
 async function submitForm() {
-
   const dealer_id = form.querySelector("input[name='dealer_id']").value;
   const steps_completed = form.querySelector("input[name='steps_completed']").value;
   const email = form.querySelector("input[name='email']").value;
@@ -48,15 +53,18 @@ async function submitForm() {
   const address2 = form.querySelector("input[name='street_address_2']").value;
   const city = form.querySelector("input[name='city']").value;
   const state = form.querySelector("select[name='state']").value;
-  const roofStories = form.querySelector("input[name='roof_stories']:checked").value;
-  const roofSize = form.querySelector("input[name='approximate_roof_size']:checked").value;
+  const roofStories = form.querySelector(
+    "input[name='roof_stories']:checked"
+  ).value;
+  const roofSize = form.querySelector(
+    "input[name='approximate_roof_size']:checked"
+  ).value;
   const pageUri = document.URL;
   const pageName = document.title;
   const hCookie = document.cookie.replace(
     /(?:(?:^|.*;\s*)hubspotutk\s*\=\s*([^;]*).*$)|^.*$/,
     "$1"
   );
-
 
   const fields = [
     {
@@ -85,7 +93,7 @@ async function submitForm() {
     },
     {
       name: "special_contact_designation",
-      value: selectedPersonTypes.join(';'),
+      value: selectedPersonTypes.join(";"),
     },
     {
       name: "firstname",
@@ -117,7 +125,6 @@ async function submitForm() {
     },
   ];
 
-
   //Note: NAME field MUST BE same as in the form created in HUBSPOT
   const body = {
     fields,
@@ -131,11 +138,10 @@ async function submitForm() {
 
   console.log("WE SUBMIT : ", body);
 
-
-
   // Save to local storage
   //setLocalStorageService(fields);
 
+  
   try {
     const response = await fetch(FORM_URL, {
       method: "POST",
@@ -152,4 +158,5 @@ async function submitForm() {
   }
 
 
+  
 }
