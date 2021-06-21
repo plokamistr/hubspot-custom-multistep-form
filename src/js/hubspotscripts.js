@@ -141,7 +141,7 @@ async function submitForm() {
   // Save to local storage
   //setLocalStorageService(fields);
 
-  
+  /*
   try {
     const response = await fetch(FORM_URL, {
       method: "POST",
@@ -156,7 +156,20 @@ async function submitForm() {
   } catch (error) {
     messageContainer.innerHTML = "Something went wrong. Please try again";
   }
+  
 
+    const response = await fetch(FORM_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    const { inlineMessage } = await response.json();
+    messageContainer.innerHTML = inlineMessage;
+    const error  = await response.json();
+    alert(error.message);
 
   
 }
