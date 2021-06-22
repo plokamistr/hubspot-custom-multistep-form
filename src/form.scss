@@ -254,7 +254,7 @@ $blue: #5b7e96;
 			}
 		}
 		.btn-section {
-			display: flex;
+			//display: flex;
 			align-items: center;
 			margin-top: 15px;
 
@@ -282,6 +282,11 @@ $blue: #5b7e96;
 					outline: none;
 					border-color: $black;
 				}
+			}
+			.previous {
+				font-size: 11px;
+				display: block;
+				margin-top: 10px;
 			}
 		}
 		.privacy {

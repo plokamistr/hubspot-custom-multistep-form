@@ -141,7 +141,6 @@ async function submitForm() {
   // Save to local storage
   //setLocalStorageService(fields);
 
-  /*
   try {
     const response = await fetch(FORM_URL, {
       method: "POST",
@@ -150,27 +149,19 @@ async function submitForm() {
       },
       body: JSON.stringify(body),
     });
-
+    // TO DO | SHOW ALERT MESSAGE WHEN HUBSPOT IS NOT VALIDATING <EMAIL>
+    /*
+      .then((result) => result.json())
+      .then((result) => {
+        alert(`${result.errors[0].message} | Please insert a valid email address`);
+      });
+    */
     const { inlineMessage } = await response.json();
     messageContainer.innerHTML = inlineMessage;
   } catch (error) {
-    messageContainer.innerHTML = "Something went wrong. Please try again";
+    alert("Something went wrong. Please try again");
   }
-  
 
-    const response = await fetch(FORM_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
 
-    const { inlineMessage } = await response.json();
-    messageContainer.innerHTML = inlineMessage;
-    const error  = await response.json();
-    alert(error.message);
-    */
 
-  
 }

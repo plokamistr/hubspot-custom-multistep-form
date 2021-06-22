@@ -30,27 +30,22 @@ $(nextBtn).on("click", function () {
     $(nextStep).find(".ignore").removeClass();
 
 
-    // HERE WE SUBMIT ON EACH NEXT STEP CLICK WHERE THE EMAIL INPUT IS
+    // HERE WE SUBMIT ON THE STEP WHERE THE EMAIL INPUT IS
     let emailEl = form.querySelector("input[name='email']");
     let divContains_El = form.querySelector("section.activeStep").contains(emailEl);
-    
-    if (divContains_El || afterEmail){ 
+
+    if (divContains_El || afterEmail) {
       console.log("YES");
       submitForm();
       afterEmail = true;
     } else (
       console.log("NO")
     )
-    
-    
-    
 
     //activate next step on progressbar using the index of nextStep
     $("#progressbar li").eq($("section").index(nextStep)).addClass("active");
     $(currentStep).removeClass("activeStep");
     $(nextStep).addClass("activeStep");
-
-
 
     // HERE WE PASS clicks TO USER INFO REGISTRATION
     //clickRegister(clicks);
@@ -90,6 +85,8 @@ $(nextBtn).on("click", function () {
 //################## ON PREVIOUS CLICK #########################
 /*
 $(prevBtn).on("click", function () {
+
+
   if (animating) return false;
   animating = true;
 
@@ -132,6 +129,7 @@ $(prevBtn).on("click", function () {
       easing: "easeInOutBack",
     }
   );
+
 });
 */
 //####################################################################

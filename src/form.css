@@ -215,7 +215,6 @@
   fill: #68813c;
 }
 .multistep-form-container #hs-main-form .btn-section {
-  display: flex;
   align-items: center;
   margin-top: 15px;
 }
@@ -241,6 +240,11 @@
 .multistep-form-container #hs-main-form .btn-section button:focus, .multistep-form-container #hs-main-form .btn-section button:focus-visible {
   outline: none;
   border-color: #222222;
+}
+.multistep-form-container #hs-main-form .btn-section .previous {
+  font-size: 11px;
+  display: block;
+  margin-top: 10px;
 }
 .multistep-form-container #hs-main-form .privacy {
   margin-top: 15px;
