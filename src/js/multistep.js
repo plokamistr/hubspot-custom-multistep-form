@@ -8,8 +8,9 @@ const prevBtn = $(".previous");
 //const resetBtn = $(".btn-reset");
 
 //################## ON NEXT CLICK #########################
-$(nextBtn).on("click", function () {
+$(nextBtn).on("click", async function () {
 
+  //debugger
   formValidation()
 
   if ($(form).valid() === true) {
@@ -20,15 +21,10 @@ $(nextBtn).on("click", function () {
 
 
     if (animating) return false;
-    animating = true;
 
     currentStep = $(this).parent().parent();
     nextStep = $(this).parent().parent().next();
-    console.log(nextStep)
-
-    // To validate only the indicated fields if not remove class ignore when activeStep
-    $(nextStep).find(".ignore").removeClass();
-
+    console.log(nextStep);
 
     // HERE WE SUBMIT ON THE STEP WHERE THE EMAIL INPUT IS
     let emailEl = form.querySelector("input[name='email']");
@@ -36,11 +32,21 @@ $(nextBtn).on("click", function () {
 
     if (divContains_El || afterEmail) {
       console.log("YES");
-      submitForm();
+      const submitValid = await submitForm();
+      // We check if submit returns true of false
+      /*
+      if (!submitValid) {
+        return
+      }
+      */
       afterEmail = true;
     } else (
       console.log("NO")
-    )
+    );
+
+    // To validate only the indicated fields if not remove class ignore when activeStep
+    $(nextStep).find(".ignore").removeClass();
+    animating = true;
 
     //activate next step on progressbar using the index of nextStep
     $("#progressbar li").eq($("section").index(nextStep)).addClass("active");
@@ -262,7 +268,7 @@ let observer = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     if (mutation.attributeName === "class") {
       if ($(mutation.target).hasClass("activeStep")) {
-        // CountDown Timer to reset Progress bar
+        // CountDown Timer to reset elements
         let timeToReset = 6;
         let downTimer = setInterval(function () {
           if (timeToReset <= 0) {
@@ -280,6 +286,6 @@ let observer = new MutationObserver(function (mutations) {
   });
   document.getElementById("countProgressBar").value = 0;
 });
-observer.observe(document.getElementById("hs-main-form").lastElementChild, {
+observer.observe(document.getElementById("multistep-form-wrapper").lastElementChild, {
   attributes: true,
 });

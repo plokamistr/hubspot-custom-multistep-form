@@ -140,7 +140,7 @@ async function submitForm() {
 
   // Save to local storage
   //setLocalStorageService(fields);
-
+  /*
   try {
     const response = await fetch(FORM_URL, {
       method: "POST",
@@ -149,18 +149,19 @@ async function submitForm() {
       },
       body: JSON.stringify(body),
     });
-    // TO DO | SHOW ALERT MESSAGE WHEN HUBSPOT IS NOT VALIDATING <EMAIL>
-    /*
-      .then((result) => result.json())
-      .then((result) => {
-        alert(`${result.errors[0].message} | Please insert a valid email address`);
-      });
-    */
-    const { inlineMessage } = await response.json();
+    const { inlineMessage, errors } = await response.json();
+    if (errors) {
+      alert(errors[0].message)
+      return false;
+    }
     messageContainer.innerHTML = inlineMessage;
+    return true;
+
   } catch (error) {
+    console.log(error);
     alert("Something went wrong. Please try again");
   }
+  */
 
 
 
