@@ -2,6 +2,7 @@
   width: 100%;
   max-width: 485px;
   margin: 0 auto;
+  padding: 15px;
 }
 .multistep-form-container * {
   border-radius: 3px;
@@ -79,6 +80,9 @@
   flex-direction: column;
   justify-content: space-evenly;
   transition: 0s;
+}
+.multistep-form-container #hs-main-form .form-step.activeStep {
+  position: relative;
 }
 .multistep-form-container #hs-main-form .form-step .content-section {
   display: flex;

@@ -11,6 +11,7 @@ $blue: #5b7e96;
 	max-width: 485px;
 	//min-height: 480px;
 	margin: 0 auto;
+	padding: 15px;
 
 	* {
 		border-radius: 3px;
@@ -95,6 +96,10 @@ $blue: #5b7e96;
 			flex-direction: column;
 			justify-content: space-evenly;
 			transition: 0s;
+
+			&.activeStep {
+				position: relative;
+			}
 
 			.content-section {
 				display: flex;
