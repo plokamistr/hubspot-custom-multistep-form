@@ -9,6 +9,7 @@ This is an intention of a multi-step form using hubspot form API v3 and JS vanil
 ## TO IMPROVE
 - Ability to move progress bar to the bottom
 - Syntax
+- Click to progress bar and return to step clicked
 - Optimize HTML code
 
 ## INCLUDES
