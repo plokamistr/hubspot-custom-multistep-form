@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 485px;
   margin: 0 auto;
-  padding: 15px;
+  box-sizing: border-box;
 }
 .multistep-form-container * {
   border-radius: 3px;
