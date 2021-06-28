@@ -33,12 +33,12 @@ $(nextBtn).on("click", async function () {
     if (divContains_El || afterEmail) {
       console.log("YES");
       const submitValid = await submitForm();
-      // We check if submit returns true of false
-      /*
+
+      // We check if submit on Hubspot returns true of false
       if (!submitValid) {
         return
       }
-      */
+
       afterEmail = true;
     } else (
       console.log("NO")
@@ -201,6 +201,7 @@ $(resetBtn).on("click", function () {
 //####################################################################
 
 //################## IF AUTO RESET IS WANTED #########################
+/*
 function resetForm() {
   $(form)[0].reset();
   clicks = 0;
@@ -208,6 +209,10 @@ function resetForm() {
   $(".valid").toggleClass("ignore");
   $("#step-1 .fields-section input").removeClass("ignore");
   $(".checkbox-field").removeClass("selected");
+}
+
+function pageRedirect() {
+  window.location.replace("https://www.tutorialrepublic.com/");
 }
 
 function returnToFirst() {
@@ -273,8 +278,50 @@ let observer = new MutationObserver(function (mutations) {
         let downTimer = setInterval(function () {
           if (timeToReset <= 0) {
             clearInterval(downTimer);
-            resetForm();
-            returnToFirst();
+            pageRedirect();
+            //resetForm();
+            //returnToFirst();
+          }
+          document.getElementById("countProgressBar").value = 6 - timeToReset;
+          document.querySelector("#timeRem p").innerHTML =
+            timeToReset + " seconds to reset the form";
+          timeToReset -= 1;
+        }, 1000);
+      }
+    }
+  });
+  document.getElementById("countProgressBar").value = 0;
+});
+observer.observe(document.getElementById("multistep-form-wrapper").lastElementChild, {
+  attributes: true,
+});
+
+*/
+
+//################## IF PAGE REDIRECTION IS WANTED #########################
+function resetForm() {
+  $(form)[0].reset();
+  clicks = 0;
+  afterEmail = false;
+  $(".valid").toggleClass("ignore");
+  $("#step-1 .fields-section input").removeClass("ignore");
+  $(".checkbox-field").removeClass("selected");
+}
+
+function pageRedirect(uri) {
+  window.open(uri, '_blank');
+}
+
+let observer = new MutationObserver(function (mutations) {
+  mutations.forEach(function (mutation) {
+    if (mutation.attributeName === "class") {
+      if ($(mutation.target).hasClass("activeStep")) {
+        // CountDown Timer to redirect
+        let timeToReset = 6;
+        let downTimer = setInterval(function () {
+          if (timeToReset <= 0) {
+            clearInterval(downTimer);
+            pageRedirect();
           }
           document.getElementById("countProgressBar").value = 6 - timeToReset;
           document.querySelector("#timeRem p").innerHTML =
