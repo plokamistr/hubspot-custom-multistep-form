@@ -157,9 +157,7 @@ async function submitForm() {
     } else if (inlineMessage) {
       messageContainer.innerHTML = inlineMessage;
     } else if (redirectUri) {
-      const redirUrl = redirectUri;
-      console.log()
-      pageRedirect()
+      window.redirUrl = redirectUri;
     }
     return true;
 
@@ -167,7 +165,6 @@ async function submitForm() {
     console.log(error);
     alert("Something went wrong. Please try again");
   }
-
 
 
 }

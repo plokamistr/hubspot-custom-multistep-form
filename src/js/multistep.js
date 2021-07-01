@@ -38,7 +38,6 @@ $(nextBtn).on("click", async function () {
       if (!submitValid) {
         return
       }
-
       afterEmail = true;
     } else (
       console.log("NO")
@@ -211,10 +210,6 @@ function resetForm() {
   $(".checkbox-field").removeClass("selected");
 }
 
-function pageRedirect() {
-  window.location.replace("https://www.tutorialrepublic.com/");
-}
-
 function returnToFirst() {
   if (animating) return false;
   animating = true;
@@ -278,9 +273,8 @@ let observer = new MutationObserver(function (mutations) {
         let downTimer = setInterval(function () {
           if (timeToReset <= 0) {
             clearInterval(downTimer);
-            pageRedirect();
-            //resetForm();
-            //returnToFirst();
+            resetForm();
+            returnToFirst();
           }
           document.getElementById("countProgressBar").value = 6 - timeToReset;
           document.querySelector("#timeRem p").innerHTML =
@@ -295,24 +289,14 @@ let observer = new MutationObserver(function (mutations) {
 observer.observe(document.getElementById("multistep-form-wrapper").lastElementChild, {
   attributes: true,
 });
-
 */
 
+
 //################## IF PAGE REDIRECTION IS WANTED #########################
-function resetForm() {
-  $(form)[0].reset();
-  clicks = 0;
-  afterEmail = false;
-  $(".valid").toggleClass("ignore");
-  $("#step-1 .fields-section input").removeClass("ignore");
-  $(".checkbox-field").removeClass("selected");
-}
 
-function pageRedirect(uri) {
-  window.open(uri, '_blank');
-}
-
+// We check if the last element of the multistep-form-wrapper has class activeStep and when he gets we reset or redirect
 let observer = new MutationObserver(function (mutations) {
+
   mutations.forEach(function (mutation) {
     if (mutation.attributeName === "class") {
       if ($(mutation.target).hasClass("activeStep")) {
@@ -321,11 +305,10 @@ let observer = new MutationObserver(function (mutations) {
         let downTimer = setInterval(function () {
           if (timeToReset <= 0) {
             clearInterval(downTimer);
-            pageRedirect();
+            window.open(redirUrl, '_self');
           }
           document.getElementById("countProgressBar").value = 6 - timeToReset;
-          document.querySelector("#timeRem p").innerHTML =
-            timeToReset + " seconds to reset the form";
+          document.querySelector("#timeRem p").innerHTML = timeToReset + " seconds to reset the form";
           timeToReset -= 1;
         }, 1000);
       }
@@ -333,6 +316,10 @@ let observer = new MutationObserver(function (mutations) {
   });
   document.getElementById("countProgressBar").value = 0;
 });
+
 observer.observe(document.getElementById("multistep-form-wrapper").lastElementChild, {
   attributes: true,
 });
+
+
+
