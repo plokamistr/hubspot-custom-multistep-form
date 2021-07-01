@@ -16,9 +16,9 @@ This is an intention of a multi-step form using hubspot form API v3 and JS vanil
 - Validation for @ to email field
 - Validation 5 digits for zip code
 - Validation for "space" character into fields
-- Redirect or Inline message option in last step after final submission. 
-  • Depends on the option chosen in hubspot form
-  • Comment/Uncomment related section at multistep.js
+- Redirect or Inline message option in last step after final submission.
+  - Depends on the option chosen in hubspot form
+  - Comment/Uncomment related section at multistep.js
 - Previous Step button Option added (Comment/Uncomment related section at multistep.js + modify HTML  )
 - Reset button Option added (Comment/Uncomment related section at multistep.js + modify HTML )
 - Styling via SCSS
