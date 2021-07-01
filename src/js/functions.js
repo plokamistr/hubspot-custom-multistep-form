@@ -1,3 +1,6 @@
+// Document Title URL name
+document.title = `Hubspot Multistep Form at ${document.URL}`;
+
 // Adds numbered id to each section
 $("section").each(function (i) {
   i = i + 1;
