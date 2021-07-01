@@ -157,6 +157,7 @@ async function submitForm() {
     } else if (inlineMessage) {
       messageContainer.innerHTML = inlineMessage;
     } else if (redirectUri) {
+      //Save redirection URL as global variable
       window.redirUrl = redirectUri;
     }
     return true;
