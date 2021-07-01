@@ -155,9 +155,10 @@ async function submitForm() {
       alert(errors[0].message)
       return false;
     } else if (inlineMessage) {
+      //If Inline Message Enabled to Hubspot Form show message to last step
       messageContainer.innerHTML = inlineMessage;
     } else if (redirectUri) {
-      //Save redirection URL as global variable
+      //If Redirection Enabled to Hubspot Form save redirection URL as global variable
       window.redirUrl = redirectUri;
     }
     return true;
