@@ -59,6 +59,7 @@ async function submitForm() {
   const roofSize = form.querySelector(
     "input[name='approximate_roof_size']:checked"
   ).value;
+  const utmSource = window.location.hostname;
   const pageUri = document.URL;
   const pageName = document.title;
   const hCookie = document.cookie.replace(
@@ -74,6 +75,10 @@ async function submitForm() {
     {
       name: "steps_completed",
       value: steps_completed,
+    },
+    {
+      name: "utm_source",
+      value: utmSource,
     },
     {
       name: "email",
