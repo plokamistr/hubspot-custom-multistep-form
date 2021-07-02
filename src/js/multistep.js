@@ -41,9 +41,9 @@ $(nextBtn).on("click", async function () {
       }
       //Comment for testing NO SUMBISSION
       afterEmail = true;
-    } else (
-      console.log("NO")
-    );
+    } else {
+      console.log("NO");
+    };
 
     // To validate only the indicated fields if not remove class ignore when activeStep
     $(nextStep).find(".ignore").removeClass();
