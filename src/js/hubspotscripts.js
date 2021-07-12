@@ -40,10 +40,26 @@ personTypeCheckboxes.forEach((checkbox) =>
   })
 );
 
+// Here we capture the UTM parameters from the URL
+let params = {};
+window.location.search.slice(1).split('&').forEach(elm => {
+  if (elm === '') return;
+  let spl = elm.split('=');
+  const d = decodeURIComponent;
+  params[d(spl[0])] = (spl.length >= 2 ? d(spl[1]) : true);
+
+});
+console.log(params);
+
+
 // HERE HAPPENS SUBMIT
 async function submitForm() {
   const dealer_id = form.querySelector("input[name='dealer_id']").value;
   const steps_completed = form.querySelector("input[name='steps_completed']").value;
+  //const utmSource = form.querySelector("input[name='utm_source']").value;
+  //const utmMedium = form.querySelector("input[name='utm_medium']").value;
+  //const utmCampaign = form.querySelector("input[name='utm_campaign']").value;
+  //const utmContent = form.querySelector("input[name='utm_content']").value;
   const email = form.querySelector("input[name='email']").value;
   const postalCode = form.querySelector("input[name='zip']").value;
   const firstName = form.querySelector("input[name='firstname']").value;
@@ -53,13 +69,8 @@ async function submitForm() {
   const address2 = form.querySelector("input[name='street_address_2']").value;
   const city = form.querySelector("input[name='city']").value;
   const state = form.querySelector("select[name='state']").value;
-  const roofStories = form.querySelector(
-    "input[name='roof_stories']:checked"
-  ).value;
-  const roofSize = form.querySelector(
-    "input[name='approximate_roof_size']:checked"
-  ).value;
-  const utmSource = window.location.hostname;
+  const roofStories = form.querySelector("input[name='roof_stories']:checked").value;
+  const roofSize = form.querySelector("input[name='approximate_roof_size']:checked").value;
   const pageUri = document.URL;
   const pageName = document.title;
   const hCookie = document.cookie.replace(
@@ -78,7 +89,19 @@ async function submitForm() {
     },
     {
       name: "utm_source",
-      value: utmSource,
+      value: params.utm_source,
+    },
+    {
+      name: "utm_medium",
+      value: params.utm_medium,
+    },
+    {
+      name: "utm_campaign",
+      value: params.utm_campaign,
+    },
+    {
+      name: "utm_content",
+      value: params.utm_content,
     },
     {
       name: "email",
@@ -146,7 +169,7 @@ async function submitForm() {
   // Save to local storage
   //setLocalStorageService(fields);
 
-
+  /*
   try {
     const response = await fetch(FORM_URL, {
       method: "POST",
@@ -172,6 +195,7 @@ async function submitForm() {
     console.log(error);
     alert("Something went wrong. Please try again");
   }
+  */
 
 
 }

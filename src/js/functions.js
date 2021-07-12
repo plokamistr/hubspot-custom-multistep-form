@@ -160,7 +160,8 @@ function formValidation() {
       if (element.is(":radio")) {
         error.insertBefore($(element).parent().parent());
       }
-      /*
+      // Uncomment if other type of element
+      /* 
       else if(element.is( ":text" )){
         error.insertBefore($(element));
       }*/

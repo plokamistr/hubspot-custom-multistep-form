@@ -36,10 +36,13 @@ $(nextBtn).on("click", async function () {
 
       //Comment for testing NO SUMBISSION
       // We check if submit on Hubspot returns true of false
+      /*
       if (!submitValid) {
         return
       }
+      */
       //Comment for testing NO SUMBISSION
+
       afterEmail = true;
     } else {
       console.log("NO");
