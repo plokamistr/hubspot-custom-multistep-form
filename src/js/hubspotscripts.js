@@ -47,19 +47,16 @@ window.location.search.slice(1).split('&').forEach(elm => {
   let spl = elm.split('=');
   const d = decodeURIComponent;
   params[d(spl[0])] = (spl.length >= 2 ? d(spl[1]) : true);
-
 });
-console.log(params);
+//console.log(params);
+//console.log(utmValues = Object.values(params));
+
 
 
 // HERE HAPPENS SUBMIT
 async function submitForm() {
   const dealer_id = form.querySelector("input[name='dealer_id']").value;
   const steps_completed = form.querySelector("input[name='steps_completed']").value;
-  //const utmSource = form.querySelector("input[name='utm_source']").value;
-  //const utmMedium = form.querySelector("input[name='utm_medium']").value;
-  //const utmCampaign = form.querySelector("input[name='utm_campaign']").value;
-  //const utmContent = form.querySelector("input[name='utm_content']").value;
   const email = form.querySelector("input[name='email']").value;
   const postalCode = form.querySelector("input[name='zip']").value;
   const firstName = form.querySelector("input[name='firstname']").value;
@@ -89,19 +86,19 @@ async function submitForm() {
     },
     {
       name: "utm_source",
-      value: params.utm_source,
+      value: utmValues[0],
     },
     {
       name: "utm_medium",
-      value: params.utm_medium,
+      value: utmValues[1],
     },
     {
       name: "utm_campaign",
-      value: params.utm_campaign,
+      value: utmValues[2],
     },
     {
       name: "utm_content",
-      value: params.utm_content,
+      value: utmValues[3],
     },
     {
       name: "email",
@@ -169,7 +166,7 @@ async function submitForm() {
   // Save to local storage
   //setLocalStorageService(fields);
 
-  /*
+
   try {
     const response = await fetch(FORM_URL, {
       method: "POST",
@@ -195,7 +192,7 @@ async function submitForm() {
     console.log(error);
     alert("Something went wrong. Please try again");
   }
-  */
+
 
 
 }

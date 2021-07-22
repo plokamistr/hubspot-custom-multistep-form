@@ -24,7 +24,7 @@ $(nextBtn).on("click", async function () {
 
     currentStep = $(this).parent().parent();
     nextStep = $(this).parent().parent().next();
-    console.log(nextStep);
+    //console.log(nextStep);
 
     // HERE WE SUBMIT ON THE STEP WHERE THE EMAIL INPUT IS
     let emailEl = form.querySelector("input[name='email']");
@@ -36,11 +36,11 @@ $(nextBtn).on("click", async function () {
 
       //Comment for testing NO SUMBISSION
       // We check if submit on Hubspot returns true of false
-      /*
+
       if (!submitValid) {
         return
       }
-      */
+
       //Comment for testing NO SUMBISSION
 
       afterEmail = true;
@@ -204,8 +204,9 @@ $(resetBtn).on("click", function () {
 */
 //####################################################################
 
-//################## IF AUTO RESET IS WANTED #########################
 /*
+//################## IF AUTO RESET IS WANTED #########################
+
 function resetForm() {
   $(form)[0].reset();
   clicks = 0;
@@ -297,6 +298,7 @@ observer.observe(document.getElementById("multistep-form-wrapper").lastElementCh
 */
 
 
+
 //################## IF PAGE REDIRECTION IS WANTED #########################
 
 // We check if the last element of the multistep-form-wrapper has class activeStep and when he gets we reset or redirect
@@ -313,7 +315,7 @@ let observer = new MutationObserver(function (mutations) {
             window.open(redirUrl, '_self');
           }
           document.getElementById("countProgressBar").value = 6 - timeToReset;
-          document.querySelector("#timeRem p").innerHTML = timeToReset + " seconds to reset the form";
+          document.querySelector("#timeRem p").innerHTML = timeToReset + " seconds to redirect you";
           timeToReset -= 1;
         }, 1000);
       }
