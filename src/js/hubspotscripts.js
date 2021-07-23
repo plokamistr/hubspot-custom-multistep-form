@@ -40,7 +40,7 @@ personTypeCheckboxes.forEach((checkbox) =>
   })
 );
 
-// Here we capture the UTM parameters from the URL
+// Here we capture the UTM parameters from the URL and convert it into an array
 let params = {};
 window.location.search.slice(1).split('&').forEach(elm => {
   if (elm === '') return;
@@ -48,8 +48,10 @@ window.location.search.slice(1).split('&').forEach(elm => {
   const d = decodeURIComponent;
   params[d(spl[0])] = (spl.length >= 2 ? d(spl[1]) : true);
 });
+let utmValues = Object.values(params);
+
 //console.log(params);
-//console.log(utmValues = Object.values(params));
+console.log(utmValues);
 
 
 
@@ -86,19 +88,19 @@ async function submitForm() {
     },
     {
       name: "utm_source",
-      value: utmValues[0],
+      value: utmValues.length === 0 ? "Null" : utmValues[0],
     },
     {
       name: "utm_medium",
-      value: utmValues[1],
+      value: utmValues.length === 0 ? "Null" : utmValues[1],
     },
     {
       name: "utm_campaign",
-      value: utmValues[2],
+      value: utmValues.length === 0 ? "Null" : utmValues[2],
     },
     {
       name: "utm_content",
-      value: utmValues[3],
+      value: utmValues.length === 0 ? "Null" : utmValues[3],
     },
     {
       name: "email",
