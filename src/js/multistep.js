@@ -40,7 +40,6 @@ $(nextBtn).on("click", async function () {
       if (!submitValid) {
         return
       }
-
       //Comment for testing NO SUMBISSION
 
       afterEmail = true;
