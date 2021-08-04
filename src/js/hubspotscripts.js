@@ -2,7 +2,7 @@
 const PORTAL_ID = "6044336";
 
 // Here goes the form ID, each form has a unique ID
-const FORM_ID = "1549b018-2b79-4094-9eb3-db71aef6f89e";
+const FORM_ID = "ff939d3b-800d-4011-8e7f-eccbd5e831b1";
 
 // POST to Endpoint
 const FORM_URL = `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_ID}`;
@@ -168,34 +168,33 @@ async function submitForm() {
   // Save to local storage
   //setLocalStorageService(fields);
 
-  /*
-    try {
-      const response = await fetch(FORM_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      });
-      const { inlineMessage, errors, redirectUri } = await response.json();
-      if (errors) {
-        alert(errors[0].message)
-        return false;
-      } else if (inlineMessage) {
-        //If Inline Message Enabled to Hubspot Form show message to last step
-        messageContainer.innerHTML = inlineMessage;
-      } else if (redirectUri) {
-        //If Redirection Enabled to Hubspot Form save redirection URL as global variable
-        window.redirUrl = redirectUri;
-      }
-      return true;
-  
-    } catch (error) {
-      console.log(error);
-      alert("Something went wrong. Please try again");
+  //Comment for testing NO SUMBISSION
+  try {
+    const response = await fetch(FORM_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    const { inlineMessage, errors, redirectUri } = await response.json();
+    if (errors) {
+      alert(errors[0].message)
+      return false;
+    } else if (inlineMessage) {
+      //If Inline Message Enabled to Hubspot Form show message to last step
+      messageContainer.innerHTML = inlineMessage;
+    } else if (redirectUri) {
+      //If Redirection Enabled to Hubspot Form save redirection URL as global variable
+      window.redirUrl = redirectUri;
     }
-    */
+    return true;
 
+  } catch (error) {
+    console.log(error);
+    alert("Something went wrong. Please try again");
+  }
+  //Comment for testing NO SUMBISSION
 
 
 }

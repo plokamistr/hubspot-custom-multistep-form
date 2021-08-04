@@ -36,11 +36,10 @@ $(nextBtn).on("click", async function () {
 
       //Comment for testing NO SUMBISSION
       // We check if submit on Hubspot returns true of false
-      /*
+
       if (!submitValid) {
         return
       }
-      */
 
       //Comment for testing NO SUMBISSION
 
@@ -331,7 +330,7 @@ let observer = new MutationObserver(function (mutations) {
   document.getElementById("countProgressBar").value = 0;
 });
 
-observer.observe(document.getElementById("multistep-form-wrapper").lastElementChild, {
+observer.observe(document.querySelector(".step-msg"), {
   attributes: true,
 });
 */

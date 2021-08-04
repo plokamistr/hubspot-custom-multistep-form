@@ -297,8 +297,8 @@ $blue: #5b7e96;
 			margin-top: 15px;
 		}
 	}
-	// Last step
-	section:last-child {
+	// Last step with message
+	.step-msg {
 		.fields-section {
 			align-items: center;
 
@@ -350,6 +350,7 @@ $blue: #5b7e96;
 			}
 		}
 	}
+	// Last step with message
 }
 
 /* ### RESPONSIVE ### */
