@@ -7,7 +7,6 @@ This is an intention of a multi-step form using hubspot form API v3 and JS vanil
 - Modify as wanted animation transitions
 
 ## TO IMPROVE
-- Ability to move progress bar to the bottom
 - Syntax
 - Click to progress bar and return to step clicked
 - Optimize HTML code
@@ -27,3 +26,5 @@ This is an intention of a multi-step form using hubspot form API v3 and JS vanil
 - Auto assign id to sections like "step-1, step-2 etc"
 - IP is included by https://www.ipify.org/ API (needed for hubspot actions)
 - Autocomplete of city and state field is done through the https://www.zippopotam.us/ API (98% accuracy)
+- Ability to move progress bar to the bottom
+
