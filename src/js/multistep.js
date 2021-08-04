@@ -36,10 +36,12 @@ $(nextBtn).on("click", async function () {
 
       //Comment for testing NO SUMBISSION
       // We check if submit on Hubspot returns true of false
-
+      /*
       if (!submitValid) {
         return
       }
+      */
+
       //Comment for testing NO SUMBISSION
 
       afterEmail = true;
@@ -85,6 +87,15 @@ $(nextBtn).on("click", async function () {
         easing: "easeInOutBack",
       }
     );
+    // Animate progress Bar  
+    $(".progressbar-container").css("opacity", "0");
+    setTimeout(function () {
+      $(".progressbar-container").animate({
+        opacity: 1
+      }, 500, "swing");
+    }, 300);
+    // Animate progress Bar
+
   } else {
     return;
   }
@@ -203,76 +214,80 @@ $(resetBtn).on("click", function () {
 */
 //####################################################################
 
-/*
+
 //################## IF AUTO RESET IS WANTED #########################
-
-function resetForm() {
-  $(form)[0].reset();
-  clicks = 0;
-  afterEmail = false;
-  $(".valid").toggleClass("ignore");
-  $("#step-1 .fields-section input").removeClass("ignore");
-  $(".checkbox-field").removeClass("selected");
-}
-
-function returnToFirst() {
-  if (animating) return false;
-  animating = true;
-
-  currentStep = $("section.activeStep");
-  firstStep = $("section").first();
-  allSteps = $("section");
-
-  //de-activate current step and set active class to the first step on progressbar
-  $("#progressbar li").removeClass("active");
-  $("#progressbar li").first().addClass("active");
-
-  //de-activate ActiveStep on currentStep and set active class to the firstStep
-  $(currentStep).removeClass("activeStep");
-  $(firstStep).addClass("activeStep");
-
-  // show the first section
-  $(firstStep).css({
-    visibility: "visible",
-  });
-
-  // Reset All step to original size
-  $(allSteps).css({ transform: "scale(" + 1 + ")" });
-
-  //hide the current section with style
-  currentStep.animate(
-    { opacity: 0 },
-    {
-      step: function (now, mx) {
-        //as the opacity of currentStep reduces to 0 - stored in "now"
-        //1. scale previousStep from 80% to 100%
-        scale = 0.8 + (1 - now) * 0.2;
-        //2. take currentStep to the right(50%) - from 0%
-        left = (1 - now) * 50 + "%";
-        //3. increase opacity of previousStep to 1 as it moves in
-        opacity = 1 - now;
-        currentStep.css({ left: left });
-        firstStep.css({
-          transform: "scale(" + scale + ")",
-          opacity: opacity,
-        });
-      },
-      duration: 600,
-      complete: function () {
-        currentStep.css("visibility", "hidden");
-        animating = false;
-      },
-      //this comes from the custom easing plugin
-      easing: "easeOutBack",
-    }
-  );
-}
 
 
 let observer = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     if (mutation.attributeName === "class") {
       if ($(mutation.target).hasClass("activeStep")) {
+
+        alert("Hola");
+
+        function resetForm() {
+          $(form)[0].reset();
+          clicks = 0;
+          afterEmail = false;
+          $(".valid").toggleClass("ignore");
+          $("#step-1 .fields-section input").removeClass("ignore");
+          $(".checkbox-field").removeClass("selected");
+        }
+
+        function returnToFirst() {
+          if (animating) return false;
+          animating = true;
+
+          currentStep = $("section.activeStep");
+          firstStep = $("section").first();
+          allSteps = $("section");
+
+          //de-activate current step and set active class to the first step on progressbar
+          $("#progressbar li").removeClass("active");
+          $("#progressbar li").first().addClass("active");
+
+          //de-activate ActiveStep on currentStep and set active class to the firstStep
+          $(currentStep).removeClass("activeStep");
+          $(firstStep).addClass("activeStep");
+
+          // show the first section
+          $(firstStep).css({
+            visibility: "visible",
+          });
+
+          // Reset All step to original size
+          $(allSteps).css({ transform: "scale(" + 1 + ")" });
+
+          //hide the current section with style
+          currentStep.animate(
+            { opacity: 0 },
+            {
+              step: function (now, mx) {
+                //as the opacity of currentStep reduces to 0 - stored in "now"
+                //1. scale previousStep from 80% to 100%
+                scale = 0.8 + (1 - now) * 0.2;
+                //2. take currentStep to the right(50%) - from 0%
+                left = (1 - now) * 50 + "%";
+                //3. increase opacity of previousStep to 1 as it moves in
+                opacity = 1 - now;
+                currentStep.css({ left: left });
+                firstStep.css({
+                  transform: "scale(" + scale + ")",
+                  opacity: opacity,
+                });
+              },
+              duration: 600,
+              complete: function () {
+                currentStep.css("visibility", "hidden");
+                animating = false;
+              },
+              //this comes from the custom easing plugin
+              easing: "easeOutBack",
+            }
+          );
+        }
+
+
         // CountDown Timer to reset elements
         let timeToReset = 6;
         let downTimer = setInterval(function () {
@@ -294,12 +309,9 @@ let observer = new MutationObserver(function (mutations) {
 observer.observe(document.getElementById("multistep-form-wrapper").lastElementChild, {
   attributes: true,
 });
-*/
-
-
 
 //################## IF PAGE REDIRECTION IS WANTED #########################
-
+/*
 // We check if the last element of the multistep-form-wrapper has class activeStep and when he gets we reset or redirect
 let observer = new MutationObserver(function (mutations) {
 
@@ -326,6 +338,6 @@ let observer = new MutationObserver(function (mutations) {
 observer.observe(document.getElementById("multistep-form-wrapper").lastElementChild, {
   attributes: true,
 });
-
+*/
 
 

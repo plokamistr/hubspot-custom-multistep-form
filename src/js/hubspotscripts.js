@@ -168,32 +168,33 @@ async function submitForm() {
   // Save to local storage
   //setLocalStorageService(fields);
 
-
-  try {
-    const response = await fetch(FORM_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
-    const { inlineMessage, errors, redirectUri } = await response.json();
-    if (errors) {
-      alert(errors[0].message)
-      return false;
-    } else if (inlineMessage) {
-      //If Inline Message Enabled to Hubspot Form show message to last step
-      messageContainer.innerHTML = inlineMessage;
-    } else if (redirectUri) {
-      //If Redirection Enabled to Hubspot Form save redirection URL as global variable
-      window.redirUrl = redirectUri;
+  /*
+    try {
+      const response = await fetch(FORM_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+      const { inlineMessage, errors, redirectUri } = await response.json();
+      if (errors) {
+        alert(errors[0].message)
+        return false;
+      } else if (inlineMessage) {
+        //If Inline Message Enabled to Hubspot Form show message to last step
+        messageContainer.innerHTML = inlineMessage;
+      } else if (redirectUri) {
+        //If Redirection Enabled to Hubspot Form save redirection URL as global variable
+        window.redirUrl = redirectUri;
+      }
+      return true;
+  
+    } catch (error) {
+      console.log(error);
+      alert("Something went wrong. Please try again");
     }
-    return true;
-
-  } catch (error) {
-    console.log(error);
-    alert("Something went wrong. Please try again");
-  }
+    */
 
 
 
