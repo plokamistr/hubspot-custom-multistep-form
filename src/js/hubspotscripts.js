@@ -51,7 +51,7 @@ window.location.search.slice(1).split('&').forEach(elm => {
 let utmValues = Object.values(params);
 
 //console.log(params);
-console.log(utmValues);
+console.log("Array ", utmValues);
 
 
 
