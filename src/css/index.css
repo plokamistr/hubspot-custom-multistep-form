@@ -300,5 +300,37 @@
 }
 
 /* ### RESPONSIVE ### */
+@media screen and (max-width: 414px) {
+  .multistep-form-container #hs-main-form {
+    font-size: 85%;
+  }
+
+  .multistep-form-container #hs-main-form .form-step {
+    padding: 20px 1.2em;
+  }
+
+  .multistep-form-container #hs-main-form .form-step .fields-section .multi-radio-check-fields-container .multi-radio-fields .field-title svg {
+    width: 60px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .multistep-form-container #hs-main-form .form-step .step-title {
+    font-size: 1.3em;
+  }
+
+  .multistep-form-container #hs-main-form .form-step .fields-section .options-title {
+    margin-bottom: 5px;
+    font-size: 1.1em;
+  }
+
+  .multistep-form-container #hs-main-form .form-step hr {
+    margin: 10px auto;
+  }
+
+  .multistep-form-container #hs-main-form .privacy {
+    margin-top: 10px;
+    font-size: 11px;
+  }
+}
 
 /*# sourceMappingURL=index.css.map */
