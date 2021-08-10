@@ -2,13 +2,13 @@
 document.title = `Hubspot Multistep Form at ${window.location.hostname}`;
 
 // Adds numbered id to each section
-$("section").each(function (i) {
+$("#hs-main-form section").each(function (i) {
   i = i + 1;
   $(this).prop('id', 'step-' + i);
 });
 
 // Dynamic width of progress bar steps
-$("#progressbar").each(function () {
+$("#hs-main-form #progressbar").each(function () {
   let liNumber = $(this).children().length;
   let liWidth = 100 / liNumber;
   $(this)
@@ -43,7 +43,7 @@ function setLocalStorageService(fields) {
 */
 
 // Autocomplete state n city function
-$("input[name='zip']").on("keyup", function () {
+$("#hs-main-form input[name='zip']").on("keyup", function () {
   const zipValue = $(this).val();
   const zipUrl = `https://api.zippopotam.us/us/${form.querySelector("input[name='zip']").value}`
   // We execute when length is 5 digits
