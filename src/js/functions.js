@@ -84,12 +84,14 @@ function formValidation() {
 
 
     // Add class ignore to active section
+    // Add class ignore to active section
     $(form).validate({
 
         rules: {
             zip: {
                 required: true,
                 noSpace: true,
+                maxlength: 5,
             },
             roof_stories: {
                 required: true,
@@ -113,6 +115,8 @@ function formValidation() {
             phone: {
                 required: true,
                 noSpace: true,
+                maxlength: 10,
+                number: true,
             },
             address: {
                 required: true,
@@ -125,7 +129,7 @@ function formValidation() {
         },
         messages: {
             zip: {
-                required: 'A zip code is required!',
+                required: 'A 5 digit zip code is required!'
             },
             roof_stories: {
                 required: 'Please choose Level/s'
@@ -144,7 +148,8 @@ function formValidation() {
                 required: 'Please enter your last name',
             },
             phone: {
-                required: 'Please enter a valid phone number',
+                required: 'Please enter a valid phone number with 10 digits',
+                number: 'Please only numbers without "+","-" or letters',
             },
             address: {
                 required: 'Please enter a valid address',
