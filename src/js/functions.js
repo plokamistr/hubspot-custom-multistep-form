@@ -115,6 +115,7 @@ function formValidation() {
             phone: {
                 required: true,
                 noSpace: true,
+                minlength: 10,
                 maxlength: 10,
                 number: true,
             },
@@ -149,7 +150,7 @@ function formValidation() {
             },
             phone: {
                 required: 'Please enter a valid phone number with 10 digits',
-                number: 'Please only numbers without "+","-" or letters',
+                number: 'Please, only numbers without "+", "-" or letters',
             },
             address: {
                 required: 'Please enter a valid address',
